@@ -1,0 +1,116 @@
+<div
+  class="min-h-[calc(100vh-80px)] md:h-[calc(100vh-80px)] flex flex-col md:flex-row"
+>
+  <div class="flex-1 shrink-0 order-2 md:order-1">
+    <div
+      class="flex flex-col py-12 mx-6 sm:mx-12 md:mx-24 gap-4 justify-center h-full"
+    >
+      <h4 class="font-semibold text-xl">
+        Welcome Back <i class="text-4xl">👋</i>
+      </h4>
+      <p class="text-semigrayText">
+        Kindly fill in your details below to sign in your account
+      </p>
+      <form
+        class="flex flex-col gap-4"
+        [formGroup]="loginForm"
+        (ngSubmit)="login()"
+      >
+        <div class="input flex flex-col gap-2">
+          <label class="text-lightGrayText font-semibold" for="username"
+            >Username</label
+          >
+          <input
+            name="username"
+            formControlName="username"
+            class="px-4 py-6 border-1 border-semiwhiteBorder placeholder:text-semiwhiteBorder focus:outline-darkgrayText rounded-lg w-full"
+            type="text"
+            id="username"
+            placeholder="Please enter your username ..... put emilys"
+          />
+          <small
+            class="text-red-500"
+            *ngIf="
+              loginForm.get('username')?.touched &&
+              loginForm.get('username')?.hasError('required')
+            "
+          >
+            Username is required.
+          </small>
+          <small
+            class="text-red-500"
+            *ngIf="loginForm.get('username')?.hasError('username')"
+          >
+            Enter a valid username.
+          </small>
+        </div>
+        <div class="input flex flex-col gap-2">
+          <label
+            class="text-lightGrayText font-semibold focus:border-white"
+            for="password"
+            >Password</label
+          >
+          <input
+            class="px-4 py-6 border-1 border-semiwhiteBorder placeholder:text-semiwhiteBorder focus:outline-darkgrayText rounded-lg w-full"
+            type="password"
+            id="password"
+            placeholder="Please enter your password ..... put emilyspass "
+            formControlName="password"
+            name="password"
+          />
+          <small
+            class="text-red-500"
+            *ngIf="
+              loginForm.get('password')?.touched &&
+              loginForm.get('password')?.hasError('required')
+            "
+          >
+            Password is required.
+          </small>
+          <small
+            class="text-red-500"
+            *ngIf="loginForm.get('password')?.hasError('password')"
+          >
+            Enter a valid password.
+          </small>
+        </div>
+        <div *ngIf="errorMessage()">
+          <p class="text-red-500">{{ errorMessage() }}</p>
+        </div>
+        <button
+          class="bg-gradientTwo text-white outline-none p-4 rounded-lg text-lg mt-4"
+          type="submit"
+          [disabled]="loginForm.invalid"
+          [disabled]="loading()"
+          [ngClass]="{
+            'opacity-50': loginForm.invalid,
+            'cursor-pointer': !loginForm.invalid
+          }"
+        >
+          Sign In
+        </button>
+        <p class="text-semigrayText text-center">
+          Don't have an account yet?
+          <a class="text-blue-500 underline" routerLink="/auth/register"
+            >Sign Up</a
+          >
+        </p>
+      </form>
+    </div>
+  </div>
+  <div
+    class="flex-1 order-1 md:order-2 shrink-0 bg-[url('/assets/images/loginImg.jpg')] bg-cover bg-center flex items-center justify-center"
+  >
+    <div
+      class="sm:mx-16 text-center text-white bg-white/10 backdrop-blur-md px-6 sm:px-12 py-16"
+    >
+      <h3 class="font-semibold md:text-3xl lg:text-4xl xl:text-5xl mb-4">
+        Lorem ipsum is <br />simple dummy.
+      </h3>
+      <p class="text-lg text-white/80">
+        There are many variations of passages of Lorem Ipsum available, but the
+        majority have suffered alteration in some form
+      </p>
+    </div>
+  </div>
+</div>

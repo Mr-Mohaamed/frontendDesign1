@@ -1,0 +1,47 @@
+<div class="md:h-[calc(100vh-80px)] bg-primary px-5">
+  <div class="container px-4 mx-auto flex flex-col md:flex-row h-full">
+    <div
+      class="flex-1 flex flex-col py-16 gap-8 text-white md:items-start items-center text-center md:text-left"
+    >
+      <h2 class="text-lg sm:text-2xl font-semibold">
+        The standard Lorem Ipsum passage,<br />
+        used since the 1500s
+      </h2>
+      <h4 class="text-gray-300 text-sm sm:text-base w-2/3">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </h4>
+      <button
+        class="mt-6 px-10 py-4 bg-gradient-to-r from-gradientOne to-gradientTwo rounded"
+      >
+        Discover More
+      </button>
+      <div class="flex gap-14 mt-12 flex-wrap justify-center">
+        <app-stat-block
+          [number]="300"
+          labelLine1="Happy"
+          labelLine2="Client"
+        ></app-stat-block>
+        <app-stat-block
+          [number]="900"
+          labelLine1="Amazing"
+          labelLine2="Projects"
+        ></app-stat-block>
+        <app-stat-block
+          [number]="20"
+          labelLine1="Awards"
+          labelLine2="Winning"
+        ></app-stat-block>
+      </div>
+    </div>
+    <div class="flex-1 flex justify-center items-end w-full h-full">
+      <div class="img w-full h-full flex items-end">
+        <img
+          class="w-full object-cover md:translate-x-9"
+          src="assets/images/hero2.svg"
+          alt="Hero Image"
+        />
+      </div>
+    </div>
+  </div>
+</div>

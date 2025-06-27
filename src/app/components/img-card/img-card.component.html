@@ -1,0 +1,15 @@
+<div
+  class="card h-full flex flex-col text-left gap-6 items-start rounded-3xl justify-around"
+>
+  <div
+    class="img w-full text-lg md:text-xl rounded flex justify-center items-center border-16 border-semidarkBorder"
+  >
+    <img class="aspect-[16/12]" [src]="imageSrc" alt="Card Image" />
+  </div>
+
+  <h4 class="text-xl md:text-2xl font-semibold text-left">{{ title }}</h4>
+
+  <p class="mb-5 text-grayText">
+    <ng-content></ng-content>
+  </p>
+</div>
