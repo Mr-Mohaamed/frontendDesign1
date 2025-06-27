@@ -5,6 +5,8 @@ import { AboutComponent } from './pages/about/about.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
+import { guestGuard } from './guards/guest.guard';
+import { authValidatorGuard } from './guards/auth-validator.guard';
 
 export const routes: Routes = [
   {
@@ -17,6 +19,7 @@ export const routes: Routes = [
       },
       {
         path: 'about',
+        canActivate: [authValidatorGuard],
         component: AboutComponent,
       },
     ],
@@ -24,6 +27,7 @@ export const routes: Routes = [
   {
     path: 'auth',
     component: AuthLayoutComponent,
+    canActivate: [guestGuard],
     children: [
       {
         path: 'login',
